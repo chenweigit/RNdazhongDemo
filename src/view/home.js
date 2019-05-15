@@ -78,7 +78,7 @@ class Home extends Component {
     let {navigation} = this.props;
     console.log(row)
     navigation.navigate('Jclq', {
-      itemId: 86,
+      itemId: 81,
       otherParam: 'anything you want here',
     });
   }
