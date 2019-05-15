@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 # 项目说明
 
+react native demo
 
+## app 运行 
+- 1   npm i
+- 2   react-native run-android
 
 
 ## 项目规范
