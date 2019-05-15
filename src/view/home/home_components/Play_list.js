@@ -19,7 +19,7 @@ class PlayItem extends Component {
     return (
       <TouchableOpacity 
         style={[styles.flexBox,styles.item]} 
-        onPress={this.props._onPressButton}>
+        onPress={() => {this.props._onPressButton(itemInfo)}}>
         <Image
           source={{uri: itemInfo.logo_url}}
           style = {{height:px2dp(95),width:px2dp(95)}}

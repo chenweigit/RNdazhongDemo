@@ -73,10 +73,10 @@ class Home extends Component {
       });
     }
   }
-  _onPressButton () {
+  _onPressButton (row) {
     // this.props.navigation
     let {navigation} = this.props;
-    
+    console.log(row)
     navigation.navigate('Jclq', {
       itemId: 86,
       otherParam: 'anything you want here',

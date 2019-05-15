@@ -28,7 +28,8 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const Bottom1 = createBottomTabNavigator({
+
+const NotLoginBottom = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions:{
@@ -59,26 +60,47 @@ const Bottom1 = createBottomTabNavigator({
   }
 });
 
-const Bottom2 = createBottomTabNavigator({
+const LoginBottom = createBottomTabNavigator({
   Home2: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions:{
+      tabBarLabel: '首页',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.home_chose_icon:imgUrl.home_icon;
+        return <TabIcon img={icon} />
+      },
+    }
   },
   Agent2: {
-    screen: AgentScreen
+    screen: AgentScreen,
+    navigationOptions:{
+      tabBarLabel: '代理',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.prize_chose_icon:imgUrl.prize_icon;
+        return <TabIcon img={icon} />
+      }
+    }
   },
   User2: {
-    screen: UserScreen
+    screen: UserScreen,
+    navigationOptions:{
+      tabBarLabel: '我的',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.mine_chose_icon:imgUrl.mine_icon;
+        return <TabIcon img={icon} />
+      }
+    }
   }
 },{
   initialRouteName: 'Home2'
 });
 
 const AppIndex = createStackNavigator({
-  App1: {
-    screen: Bottom1
+  NotLoginBottom: {
+    screen: NotLoginBottom
   },
-  App2: {
-    screen: Bottom2
+  LoginBottom: {
+    screen: LoginBottom
   },
   Jclq: {
     screen: JclqScreen
@@ -88,7 +110,7 @@ const AppIndex = createStackNavigator({
   },
 
 },{
-  initialRouteName: 'App1',
+  initialRouteName: 'NotLoginBottom',
   defaultNavigationOptions: {
     headerStyle: {
         // backgroundColor: '#f4511e',
