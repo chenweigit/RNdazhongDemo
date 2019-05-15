@@ -9,7 +9,9 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation'
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import TabIcon from './component/base/TabIcon';
+import imgUrl from './utils/image_index';
 /**
  * 页面路由
  */
@@ -27,13 +29,33 @@ const instructions = Platform.select({
 
 const Bottom1 = createBottomTabNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions:{
+      tabBarLabel: '首页',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.home_chose_icon:imgUrl.home_icon;
+        return <TabIcon img={icon} />
+      },
+    }
   },
   User: {
-    screen: UserScreen
+    screen: UserScreen,
+    navigationOptions:{
+      tabBarLabel: '我的',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.mine_chose_icon:imgUrl.mine_icon;
+        return <TabIcon img={icon} />
+      }
+    }
   }
 },{
-  initialRouteName: 'Home'
+  initialRouteName: 'Home',
+  defaultNavigationOptions:{
+    tabBarOptions: { //是否选中的颜色
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    },
+  }
 });
 
 const Bottom2 = createBottomTabNavigator({
