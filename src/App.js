@@ -19,6 +19,7 @@ import HomeScreen from './view/home'
 import UserScreen from './view/user'
 import AgentScreen from './view/agent'
 import LoginScreen from './view/login'
+import JclqScreen from './view/play/play_jclq/index'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -79,9 +80,13 @@ const AppIndex = createStackNavigator({
   App2: {
     screen: Bottom2
   },
+  Jclq: {
+    screen: JclqScreen
+  },
   Login: {
     screen: LoginScreen
-  }
+  },
+
 },{
   initialRouteName: 'App1',
   defaultNavigationOptions: {
