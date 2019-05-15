@@ -1,0 +1,7 @@
+{
+    "env": {
+     "production": {
+       "plugins": ["transform-remove-console"]  //在正式环境移除 所有的console 代码，减少性能消耗
+     }
+   }
+}
