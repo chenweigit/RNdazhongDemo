@@ -6,6 +6,7 @@ react native demo
 ## app 运行 
 -  npm i
 -  react-native link react-native-splash-screen
+-  react-native link react-native-gesture-handler
 -  react-native run-android
 
 
