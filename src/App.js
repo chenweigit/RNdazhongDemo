@@ -9,6 +9,14 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation'
+/**
+ * 页面路由
+ */
+import HomeScreen from './view/home'
+import UserScreen from './view/user'
+import AgentScreen from './view/agent'
+import LoginScreen from './view/login'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -17,8 +25,58 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+const Bottom1 = createBottomTabNavigator({
+  Home: {
+    screen: HomeScreen
+  },
+  User: {
+    screen: UserScreen
+  }
+},{
+  initialRouteName: 'Home'
+});
+
+const Bottom2 = createBottomTabNavigator({
+  Home2: {
+    screen: HomeScreen
+  },
+  Agent2: {
+    screen: AgentScreen
+  },
+  User2: {
+    screen: UserScreen
+  }
+},{
+  initialRouteName: 'Home2'
+});
+
+const AppIndex = createStackNavigator({
+  App1: {
+    screen: Bottom1
+  },
+  App2: {
+    screen: Bottom2
+  },
+  Login: {
+    screen: LoginScreen
+  }
+},{
+  initialRouteName: 'App1',
+  defaultNavigationOptions: {
+    headerStyle: {
+        // backgroundColor: '#f4511e',
+    },
+    headerBackTitle: null,
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    header: null
+  }
+})
+
+const AppContainer = createAppContainer(AppIndex);
+
+export default class App extends Component{
 
   // 样式渲染完成后 隐藏启动屏幕
   componentDidMount(){
@@ -26,13 +84,14 @@ export default class App extends Component<Props> {
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+    return <AppContainer></AppContainer>
+    // return (
+    //   <View style={styles.container}>
+    //     <Text style={styles.welcome}>W</Text>
+    //     <Text style={styles.instructions}>To get started</Text>
+    //     <Text style={styles.instructions}>{instructions}</Text>
+    //   </View>
+    // );
   }
 }
 
