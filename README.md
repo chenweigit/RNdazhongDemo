@@ -1,12 +1,12 @@
-<<<<<<< HEAD
+
 # 项目说明
 
 react native demo
 
 ## app 运行 
--  npm i
--  react-native link react-native-splash-screen
--  react-native run-android
+- 1、 npm i
+- 2、 react-native link react-native-splash-screen
+- 3、 react-native run-android
 
 
 ## 项目规范
@@ -37,6 +37,7 @@ src
  - babel-plugin-transform-remove-console  生产环境删除所有的 console
  > npm i babel-plugin-transform-remove-console --save
  > 新建并配置 .babelrc 文件
+
  ````
  {
      "env": {
