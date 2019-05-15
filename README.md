@@ -4,8 +4,9 @@
 react native demo
 
 ## app 运行 
-- 1   npm i
-- 2   react-native run-android
+-  npm i
+-  react-native link react-native-splash-screen
+-  react-native run-android
 
 
 ## 项目规范
