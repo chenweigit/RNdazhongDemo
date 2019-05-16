@@ -11,9 +11,48 @@ react native demo
 > 手势模块，react-navigation 的安卓依赖
 -  react-native link react-native-gesture-handler
 > 插件安装,热更新 RN 版本0.27+
+> │ Production │ HiohXNxvVkg9aBouevzWWlm_0RmJ7f49db43-8b02-4316-9ab5-394fa2f5d52a │
+  ├────────────┼──────────────────────────────────────────────────────────────────┤
+  │ Staging    │ NQj3RK14lrtMUGs7zgnstLWDZpyI7f49db43-8b02-4316-9ab5-394fa2f5d52a
+  
 - react-native link react-native-code-push
 > 启动服务
 -  react-native run-android
+
+## 打包
+> 默认已经创建了签名文件
+````
+// 1、将签名文件拷贝并放在 android 文件下
+
+// 2、在 android/.gradle/gradle.properies(如果没有就创建这个文件) 配置以下内容
+MYAPP_RELEASE_STORE_FILE=dazhongkey.keystore  // 签名文件名称
+MYAPP_RELEASE_KEY_ALIAS=dazhongkey              // 签名别名
+MYAPP_RELEASE_STORE_PASSWORD=1234qwer           // 密码
+MYAPP_RELEASE_KEY_PASSWORD=1234qwer             // 别名密码
+
+// 3、 在android/app/build.gradle 配置
+android{
+    ....
+    // 打包配置
+    signingConfigs {
+        release {
+            storeFile file('../dazhongkey.keystore')  // 签名文件路径
+            storePassword '1234qwer'                    // 密码
+            keyAlias 'dazhongkey'                       // 别名
+            keyPassword '1234qwer'                      // 别名密码
+        }
+    }
+    ....
+}
+
+// 打包命令
+// 在项目的根路径下
+cd android 
+// 打测试包
+./gradlew installRelease
+// 打正式包
+./gradlew installRelease
+
 
 
 ## 项目规范
@@ -27,6 +66,9 @@ react native demo
 ## 项目目录结构
 
 ````
+bundle           // 编译后的文件
+    ios           // ios bundle 文件
+    android       // android bundle 文件
 src 
     assets       // 静态资源
         image    // 图片

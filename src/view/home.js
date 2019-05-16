@@ -119,7 +119,7 @@ class Home extends Component {
           <NoticeSwipe></NoticeSwipe>
           <View style={styles.contentBox}>
             <View style={styles.title}>
-              <Text>热门彩种</Text>
+              <Text>热门彩种1</Text>
             </View>
             <PlayList data={cpList} _onPressButton={this._onPressButton} ></PlayList>
           </View>

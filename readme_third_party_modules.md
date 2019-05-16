@@ -52,3 +52,36 @@ android 上设置
 
 
     - B、查看链接  https://zhuanlan.zhihu.com/p/29495955
+
+## 热更新
+> app 热更新方案
+> 环境配置
+```` 
+// 安装模块
+npm i react-native-code-push --save
+
+// 安装依赖
+react-native link react-native-code-push
+
+// 生成秘钥 ，前提是本地已经全局安装了  code-push  和注册了账号
+// 添加 app dazhongDemo android平台 react-native
+code-push app add dazhongDemo Android react-native
+
+// 生成bundle命令
+react-native bundle --entry-file index.js --bundle-output ./bundle/android/main.jsbundle --platform android --assets-dest ./bundle/android --dev false
+
+// 将生成的bundle文件上传到CodePush
+// code-push release-react <Appname> <Platform> --t <本更新包面向的旧版本号> --des <本次更新说明>
+// -- t 对应的参数是和我们项目中的版本号一致的，这个不要误理解为是更新包的版本号
+// --m true 表示强制更新
+code-push release-react dazhongDemo android --t 0.0.1 --dev true --d Production/Staging --des "这是第4个更新包" --m true
+
+// 查看发布的历史记录
+code-push deployment history dazhongDemo Production
+
+// 查看终端更新情况 
+code-push deployment h dazhongDemo Staging/Production
+
+// 查看终端版本
+code-push deployment ls dazhongDemo  -k
+````
