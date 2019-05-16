@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import { View, Text, Button, Image, StyleSheet, Dimensions, TouchableOpacity, TouchableHighlight,Modal,FlatList,ImageBackground  } from "react-native";
 import { px2dp } from '../../utils/util';
 import PropTypes from 'prop-types'
 
@@ -7,56 +7,174 @@ import PropTypes from 'prop-types'
 let { width, height } = Dimensions.get("window");
 
 class MyModel extends React.Component {
+  static propTypes = {
+    modalVisible: PropTypes.bool,
+    handleVisible: PropTypes.func,
+    titleList: PropTypes.array,
+    choseIndex: PropTypes.number,
+  }
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false
+    }
+  }
   render() {
     return (
-      <View style={model.box}>
-        <Text>sdf</Text>
-      </View>
+      <View>
+      <Modal
+        animationType="fade"
+        transparent={false}
+        visible={this.props.modalVisible}
+        transparent = {true}
+        onRequestClose={() => {
+          alert("Modal has been closed.");
+        }}
+      >
+        <ModelInfo closeModel={this.props.handleVisible} titleList={this.props.titleList} setIndex={this.props.setIndex} choseIndex={this.props.choseIndex}></ModelInfo>
+      </Modal>
+    </View>
     )
   }
 }
+
+
+class ModelInfo extends React.Component {
+  static propTypes = {
+    closeModel: PropTypes.func,
+    titleList: PropTypes.array,
+    setIndex: PropTypes.func,
+    choseIndex: PropTypes.number,
+  }
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       isChose: 0
+    }
+  }
+
+  render(){
+    let {titleList,choseIndex,setIndex} = this.props;
+    return (
+      // <View style={model.box}>
+        <TouchableOpacity
+          style={model.box}
+          onPress={() => {
+            this.props.closeModel(false);
+          }}
+        >
+        <View 
+          style={model.textBox}
+        >
+          <FlatList
+            data={titleList}
+            extraData={this.props}
+            numColumns = {2}
+            contentContainerStyle = {model.boxTest}
+            renderItem={({ item,index }) => {
+              return (
+                <TouchableOpacity
+                  onPress = {()=> {
+                    // console.log(this.state.isChose);
+                    setIndex(index)
+                  }}
+                >
+                  <Text style={[model.item,{marginLeft:index%2===0?0:px2dp(30)},index===choseIndex?model.itemChose:{}]}>{item}</Text>
+                  {choseIndex === index?<Image source={require('../../assets/image/title_chose.png')} style={{width:px2dp(38),height:px2dp(38),position:'absolute',right:0,top:0,borderTopRightRadius:px2dp(10)}}/>:null}
+                </TouchableOpacity>
+              )
+            }}
+        />
+        </View>
+        </TouchableOpacity>
+        
+      // </View>
+    )
+  }
+}
+
 const model = StyleSheet.create({
   box: {
     position: 'absolute',
-    // left: 0,
-    // right: 0,
-    // top: 0,
-    // bottom: 0,
-    width: width,
-    height: height * 2,
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     backgroundColor: 'rgba(0,0,0,.5)',
     zIndex: 100
+  },
+  boxTest:{
+    paddingHorizontal: px2dp(60),
+    paddingTop: px2dp(30),
+    // justifyContent: 'space-between',
+  },  
+  textBox: {
+    marginTop: px2dp(90),
+    backgroundColor: '#fff',
+    width: '100%'
+
+  },
+  item:{
+    width: px2dp(300),
+    height: px2dp(80),
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#e9e9e9',
+    borderRadius: px2dp(10),
+    fontSize: px2dp(26),
+    textAlign: 'center',
+    lineHeight: px2dp(80),
+    marginBottom: px2dp(30),
+    // marginLeft: px2dp(30)
+
+  },
+  itemChose:{
+    borderColor: '#ff473a',
+    color: '#ff473a'
   }
 })
-
 
 
 class BaseTitle extends React.Component {
   static propTypes = {
     back: PropTypes.func,
     goto: PropTypes.func,
+    titleList: PropTypes.array,
   }
   
   constructor(props) {
     super(props)
-
-    this.state = {
-
+    this.state = { 
+      modalVisible: false,
+      choseIndex: 0
     }
     this._onPress = this._onPress.bind(this)
     this.back = this.back.bind(this)
+    this.setModalVisible = this.setModalVisible.bind(this)
+    this.setIndex = this.setIndex.bind(this)
   }
   _onPress(nativeEvent) {
     console.log(123);
     console.log(nativeEvent);
-    
-
   }
   back(){
     this.props.back()
   }
-
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+  setIndex(index){
+    this.setState({
+      choseIndex:index
+    })
+    this.setModalVisible(!this.state.modalVisible)
+  }
   render() {
+    let {choseIndex} = this.state;
+    let {titleList} = this.props;
+    if(!titleList){return null};
     return (
       <View style={titleStyle.box}>
         <View style={titleStyle.leftBox}>
@@ -65,18 +183,26 @@ class BaseTitle extends React.Component {
               source={require('../../assets/image/back_icon.png')}
               style={titleStyle.image}
             />
-        </TouchableOpacity>
-          
+        </TouchableOpacity>  
         </View>
+        {/* 中间 */}
         <View
           style={titleStyle.textBox}
         >
-          <Text style={titleStyle.text}>购彩记录-全部</Text>
-          <Image
-            source={require('../../assets/image/down_icon.png')}
-            style={titleStyle.centerIcon}
-          />
+          <TouchableOpacity
+            style={titleStyle.textBox}
+            onPress = {()=>this.setModalVisible(!this.state.modalVisible)}
+          >
+            <Text style={titleStyle.text}>竞猜篮球-{(titleList&&titleList[choseIndex])||'全部'}</Text>
+            <Image
+              source={require('../../assets/image/down_icon.png')}
+              style={titleStyle.centerIcon}
+            />
+          </TouchableOpacity>
+          <MyModel modalVisible={this.state.modalVisible} handleVisible = {this.setModalVisible} titleList={this.props.titleList} setIndex = {this.setIndex} choseIndex = {this.state.choseIndex}></MyModel>
         </View>
+
+        {/* 右边 */}
         <View style={titleStyle.rightBox}>
           <TouchableOpacity style={titleStyle.imgBox} onPress={this._onPress}>
             <Image
@@ -91,9 +217,6 @@ class BaseTitle extends React.Component {
             />
           </TouchableOpacity>
         </View>
-
-        {/* <MyModel></MyModel> */}
-
       </View>
 
     );
@@ -106,7 +229,7 @@ const titleStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#ff473a',
     height: px2dp(90),
     width: '100%',
     paddingHorizontal: px2dp(30)
@@ -139,7 +262,7 @@ const titleStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
+    // flex: 1,
     // textAlign: 'center',
 
   },
