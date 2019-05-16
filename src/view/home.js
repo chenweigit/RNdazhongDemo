@@ -91,7 +91,6 @@ class Home extends Component {
         cpList:res.data
       })
       // console.log(this.state.cpList);
-      
     })
     
   }

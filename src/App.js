@@ -12,6 +12,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import TabIcon from './component/base/TabIcon';
 import imgUrl from './utils/image_index';
+
 /**
  * 页面路由
  */
