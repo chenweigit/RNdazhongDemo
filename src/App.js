@@ -114,23 +114,12 @@ const AppIndex = createStackNavigator({
   },
   Login: {
     screen: LoginScreen
-<<<<<<< HEAD
   }
-=======
-  },
-
-<<<<<<< HEAD
-}, {
-    initialRouteName: 'App1',
-    defaultNavigationOptions: {
-      headerStyle: {
-=======
->>>>>>> 2b66cf4d0c5abe42f5f6fcd1f85aae62e6c50957
 },{
   initialRouteName: 'PopulationScreen',
   defaultNavigationOptions: {
     headerStyle: {
->>>>>>> 1195c09cf0eac41162f6580b1e0ffad1aac4396e
+
         // backgroundColor: '#f4511e',
       },
       headerBackTitle: null,
