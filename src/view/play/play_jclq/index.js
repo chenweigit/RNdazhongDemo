@@ -4,10 +4,22 @@ import BaseTitle from '../../../component/base/base_title';
 
 export default class Jclq extends Component {
   static navigationOptions = ({ navigation })=> {
+    const  titleList = ['混合过关','胜负','让分胜负','胜分差','大小分']
     return {
-      header: <BaseTitle  goto = {() => navigation.goBack()} back = {() => navigation.goBack()}/>,
+      header: <BaseTitle  goto = {() => navigation.goBack()} back = {() => navigation.goBack()} 
+          titleList = {titleList}
+          />,
     }
   }
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       dataList: ['混合过关','胜负','让分胜负','胜分差','大小分']
+    }
+  }
+  
+
   back(){
     let {navigation} = this.props;
     navigation.goBack()
@@ -20,13 +32,12 @@ export default class Jclq extends Component {
     });
   }
 
-  componentDidMount() {
-    // this.props.navigation.setParams({ 
-    //   goto: this._increaseCount,
-    //   back: this.back
-
-    // });
+  componentWillMount() {
+    this.props.navigation.setParams({ 
+      titleList: this.state.dataList
+    });
   }
+
   render() {
     return (
       <View>
