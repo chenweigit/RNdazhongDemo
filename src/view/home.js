@@ -110,8 +110,6 @@ class Home extends Component {
 
   render() {
     let { bannerList, cpList } = this.state;
-    console.log(this.props.navigation,22);
-    
     return (
       <View style={styles.content}>
         <ScrollView
