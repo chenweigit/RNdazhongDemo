@@ -10,6 +10,9 @@ const API_DRESS = '/cpapis/'
 export default {
     home:{
         CPList: `${API_DRESS}inidentity/get_cp_list`,
-        Banner: `${API_DRESS}inidentity/get_banner`,
+        Banner: `${API_DRESS}inidentity/get_banner`
+    },
+    login: {
+        Login: `${API_DRESS}inidentity/login_pw`
     }
 }
