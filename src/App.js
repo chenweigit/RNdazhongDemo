@@ -14,6 +14,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import TabIcon from './component/base/TabIcon';
 import imgUrl from './utils/image_index';
+
 /**
  * 页面路由
  */
@@ -30,7 +31,8 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const Bottom1 = createBottomTabNavigator({
+
+const NotLoginBottom = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
@@ -61,26 +63,47 @@ const Bottom1 = createBottomTabNavigator({
     }
   });
 
-const Bottom2 = createBottomTabNavigator({
+const LoginBottom = createBottomTabNavigator({
   Home2: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions:{
+      tabBarLabel: '首页',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.home_chose_icon:imgUrl.home_icon;
+        return <TabIcon img={icon} />
+      },
+    }
   },
   Agent2: {
-    screen: AgentScreen
+    screen: AgentScreen,
+    navigationOptions:{
+      tabBarLabel: '代理',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.prize_chose_icon:imgUrl.prize_icon;
+        return <TabIcon img={icon} />
+      }
+    }
   },
   User2: {
-    screen: UserScreen
+    screen: UserScreen,
+    navigationOptions:{
+      tabBarLabel: '我的',
+      tabBarIcon: ({focused}) => {
+        let icon = focused? imgUrl.mine_chose_icon:imgUrl.mine_icon;
+        return <TabIcon img={icon} />
+      }
+    }
   }
 }, {
     initialRouteName: 'Home2'
   });
 
 const AppIndex = createStackNavigator({
-  App1: {
-    screen: Bottom1
+  NotLoginBottom: {
+    screen: NotLoginBottom
   },
-  App2: {
-    screen: Bottom2
+  LoginBottom: {
+    screen: LoginBottom
   },
   Jclq: {
     screen: JclqScreen
@@ -89,10 +112,17 @@ const AppIndex = createStackNavigator({
     screen: LoginScreen
   },
 
+<<<<<<< HEAD
 }, {
     initialRouteName: 'App1',
     defaultNavigationOptions: {
       headerStyle: {
+=======
+},{
+  initialRouteName: 'NotLoginBottom',
+  defaultNavigationOptions: {
+    headerStyle: {
+>>>>>>> 1195c09cf0eac41162f6580b1e0ffad1aac4396e
         // backgroundColor: '#f4511e',
       },
       headerBackTitle: null,

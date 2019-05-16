@@ -73,12 +73,12 @@ class Home extends Component {
       });
     }
   }
-  _onPressButton () {
+  _onPressButton (row) {
     // this.props.navigation
     let {navigation} = this.props;
-    
+    console.log(row)
     navigation.navigate('Jclq', {
-      itemId: 86,
+      itemId: 85,
       otherParam: 'anything you want here',
     });
   }
@@ -91,7 +91,6 @@ class Home extends Component {
         cpList:res.data
       })
       // console.log(this.state.cpList);
-      
     })
     
   }
@@ -110,8 +109,6 @@ class Home extends Component {
 
   render() {
     let { bannerList, cpList } = this.state;
-    console.log(this.props.navigation,22);
-    
     return (
       <View style={styles.content}>
         <ScrollView
