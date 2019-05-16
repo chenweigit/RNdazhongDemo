@@ -21,6 +21,7 @@ import UserScreen from './view/user'
 import AgentScreen from './view/agent'
 import LoginScreen from './view/login'
 import JclqScreen from './view/play/play_jclq/index'
+import PopulationScreen from './view/population'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -97,6 +98,9 @@ const LoginBottom = createBottomTabNavigator({
 });
 
 const AppIndex = createStackNavigator({
+  PopulationScreen: {
+    screen: PopulationScreen
+  },
   NotLoginBottom: {
     screen: NotLoginBottom
   },
@@ -108,10 +112,9 @@ const AppIndex = createStackNavigator({
   },
   Login: {
     screen: LoginScreen
-  },
-
+  }
 },{
-  initialRouteName: 'NotLoginBottom',
+  initialRouteName: 'PopulationScreen',
   defaultNavigationOptions: {
     headerStyle: {
         // backgroundColor: '#f4511e',

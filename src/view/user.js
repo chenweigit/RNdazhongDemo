@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Button} from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
-const resetAction = StackActions.reset({
-  index: 0,
-  actions: [
-    NavigationActions.navigate({routeName: 'LoginBottom'}),
-  ],
-});
+
 
 /**
  * 用户
@@ -18,13 +13,15 @@ export default class User extends Component{
     }
   }
 
-  goo () {
+  goLogin () {
+    let { navigation } = this.props
+    navigation.navigate('Login')
   }
   render() {
     return (
       <View>
         <Text>用户</Text>
-        <Button title='登录' onPress={() => {this.props.navigation.dispatch(resetAction)}}></Button>
+        <Button title='登录' onPress={() => {this.goLogin()}}></Button>
       </View>
     );
   }
