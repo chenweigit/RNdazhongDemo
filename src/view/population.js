@@ -37,6 +37,7 @@ export default class User extends Component{
         this.init(jsonValue)
       } else {
         jsonValue = JSON.parse(result)
+        global._userInfo = jsonValue
         this.init(jsonValue)
       }
     })

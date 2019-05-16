@@ -16,10 +16,30 @@ export default class Header extends Component{
       isShow: true
     }
   }
+
+  
+  /**
+   * 左边渲染
+   */
+  _renderLeft () {
+    let { goBack } = this.props
+    if (goBack) {
+      return (
+        <Text style={styles.textColor} onPress={() => {
+          goBack()
+        }}>返回</Text>
+      )
+    } else {
+      return null
+    }
+  }
+
   render() {
     return (
       <View style={styles.topView}>
-        <View style={styles.bianView}><Text style={styles.textColor}>返回</Text></View>
+        <View style={styles.bianView}>
+          {this._renderLeft()}
+        </View>
         <View style={styles.middleView}><Text style={styles.textColor}>{this.props.text}</Text></View>
         <View style={styles.bianView}></View>
       </View>

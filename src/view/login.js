@@ -18,6 +18,7 @@ export default class Login extends Component{
       pass: '',
       passIsTrue: false
     }
+    this.goback = this.goback.bind(this)
   }
 
   /**
@@ -103,12 +104,18 @@ export default class Login extends Component{
     })
   }
 
+  // 返回
+  goback () {
+    let { navigation } = this.props
+    navigation.goBack()
+  }
+
   render() {
     let phoneImg = require('../assets/login/signin_phone.png')
     let passImg = require('../assets/login/signin_password1.png')
     return (
       <View>
-        <Header text="登录"></Header>
+        <Header text="登录" goBack={this.goback}></Header>
         <View style={styles.middle}>
           <View style={styles.inputView}>
             <View style={styles.imgView}>
@@ -134,9 +141,8 @@ export default class Login extends Component{
               placeholder="请输入密码"
               numberOfLines={1}
               maxLength={6}
-              autoFocus={true}
               keyboardType='numeric'
-              password={true}
+              secureTextEntry={true}
               underlineColorAndroid={'transparent'}
               onChangeText={(pass) => {this._ckeckPass(pass)}}
             />
@@ -156,12 +162,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: px2dp(10),
     height: px2dp(80),
+    backgroundColor: '#f7f7f7',
   },
   imgView: {
     backgroundColor: '#f7f7f7',
     height: '100%',
     justifyContent: 'center',
-    paddingLeft: px2dp(20)
+    paddingLeft: px2dp(20),
+    paddingRight: px2dp(10)
   },
   imgStyle: {
     width: px2dp(41.5),
