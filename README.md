@@ -8,7 +8,7 @@ react native demo
 -  npm i
 > 首屏模块，解决启动白屏问题
 -  react-native link react-native-splash-screen
-> 手势模块，react-navigation 的安卓依赖
+> 手势模块，swiper 模块依赖
 -  react-native link react-native-gesture-handler
 > 插件安装,热更新 RN 版本0.27+
 > │ Production │ HiohXNxvVkg9aBouevzWWlm_0RmJ7f49db43-8b02-4316-9ab5-394fa2f5d52a │
