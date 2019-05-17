@@ -5,6 +5,12 @@
         <!-- Customize your theme here. -->
         <!--设置透明背景-->
         <item name="android:windowIsTranslucent">true</item>
+    
+    </style>
+
+    <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar"> 
+        <item name="android:windowTranslucentStatus">true</item> 
+        <item name="android:windowTranslucentNavigation">true</item> 
     </style>
 
 </resources>

@@ -17,12 +17,10 @@ public class MainActivity extends ReactActivity {
     }
 
     /**
-     * 启动的时候，显示界面 
-     * 启动页配置3
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        SplashScreen.show(this);
+        // SplashScreen.show(this);
         super.onCreate(savedInstanceState);
     }
 }
