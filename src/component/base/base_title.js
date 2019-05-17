@@ -80,6 +80,7 @@ class ModelInfo extends React.Component {
                     // console.log(this.state.isChose);
                     setIndex(index)
                   }}
+                  keys={index}
                 >
                   <Text style={[model.item,{marginLeft:index%2===0?0:px2dp(30)},index===choseIndex?model.itemChose:{}]}>{item}</Text>
                   {choseIndex === index?<Image source={require('../../assets/image/title_chose.png')} style={{width:px2dp(38),height:px2dp(38),position:'absolute',right:0,top:0,borderTopRightRadius:px2dp(10)}}/>:null}

@@ -3,7 +3,7 @@
  * @Author: chenwei
  * @LastEditors: kelelle
  * @Date: 2019-05-06 13:35:25
- * @LastEditTime: 2019-05-07 14:35:44
+ * @LastEditTime: 2019-05-17 17:42:27
  */
 
 
@@ -44,4 +44,21 @@ const filter = function(str) { // 特殊字符转义
     return data.join('&');
   };
 
-export {px2dp,formateObjToParamStr}
+function getWeekDay(date){
+  let dates = new Date(date);
+  const weekList = ['周日','周一','周二','周三','周四','周五','周六'];
+  let day = dates.getDay();
+  return weekList[day]
+}
+
+function lastTime(timeTemp,limitTime=5){ //最后下注时间 到秒
+  let limitTemp = limitTime * 60;
+  let time = timeTemp - limitTemp;
+  let date = new Date(time*1000);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  return `${hours}:${minutes}`
+}
+
+
+export {px2dp,formateObjToParamStr,getWeekDay,lastTime}

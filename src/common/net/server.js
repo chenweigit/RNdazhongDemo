@@ -4,13 +4,13 @@
  * @Author: chenwei
  * @LastEditors: kelelle
  * @Date: 2019-05-06 11:49:16
- * @LastEditTime: 2019-05-07 14:08:44
+ * @LastEditTime: 2019-05-17 15:22:57
  */
 
 import md5 from "react-native-md5";
 import { formateObjToParamStr } from '../../utils/util';
 import { fetchHost, urlVersion } from '../../config/project_config';
-
+import api from './api';
 
 export default class FetchRequest {
 
@@ -66,7 +66,6 @@ export default class FetchRequest {
         data = signature(data);
         data.version = urlVersion;
         url = fetchHost + url;
-       
         return fetch(url, {
             method: 'POST',//如果为GET方式，则不要添加body，否则会出错    GET/POST
             headers: {
@@ -102,4 +101,8 @@ function signature(data = {}, _type = 1) {
     signData['auth_key'] = _auth_key;
 
     return Object.assign(data, signData);
+}
+
+export {
+    api,
 }

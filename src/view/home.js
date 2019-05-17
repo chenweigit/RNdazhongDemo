@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, Button, StyleSheet, Image, ScrollView } from 'react-native'
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import Swipe from "../component/base/Swipe";
-import server from '../common/net/server';
-import api from '../common/net/api';
+import server,{api} from '../common/net/server';
 import { px2dp } from '../utils/util';
 import imgUrl from '../utils/image_index';
 import PlayList from './home/home_components/Play_list'
