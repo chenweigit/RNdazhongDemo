@@ -2,15 +2,9 @@
  * 入口页面
  */
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
-
-const resetAction = StackActions.reset({
-  index: 0,
-  actions: [
-    NavigationActions.navigate({ routeName: 'LoginBottom' }),
-  ],
-});
+import AsyncStorage from '@react-native-community/async-storage'
 
 /**
  * 用户
@@ -43,27 +37,20 @@ export default class User extends Component {
 
   init(userInfo) {
     const { navigation } = this.props
-    if (userInfo) {
-      this.setState({
-        loading: false
-      })
-      navigation.dispatch(resetAction);
-    } else {
-      this.setState({
-        loading: false
-      })
-      navigation.dispatch(StackActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName: 'NotLoginBottom' })]
-      }))
-    }
+    let router = userInfo ? 'LoginBottom' : 'NotLoginBottom'
+    this.setState({
+      loading: false
+    })
+    navigation.dispatch(StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: router })]
+    }))
   }
 
   render() {
     return (
       <View>
         <Text>入口</Text>
-        <Button title='登录' onPress={() => { this.props.navigation.dispatch(resetAction) }}></Button>
       </View>
     );
   }
