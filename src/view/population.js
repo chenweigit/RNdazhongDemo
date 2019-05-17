@@ -30,6 +30,7 @@ export default class User extends Component {
   }
 
   // 获取登录状态
+<<<<<<< HEAD
   async _readData() {
     // AsyncStorage.removeItem('UserInfo')
     let jsonValue = ''
@@ -41,6 +42,17 @@ export default class User extends Component {
       this.init(jsonValue)
     }
     
+=======
+  async _readData () {
+    // AsyncStorage.removeItem('UserInfo')
+    let userinfo = await AsyncStorage.getItem('UserInfo')
+    let jsonValue = ''
+    if (userinfo) {
+      jsonValue = JSON.parse(userinfo)
+      global._userInfo = jsonValue
+    }
+    this.init(jsonValue)
+>>>>>>> 30301dd6551dc042e2a01bc80857f69df105c6d0
   }
 
   init(userInfo) {
