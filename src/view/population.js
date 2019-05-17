@@ -16,7 +16,6 @@ export default class User extends Component {
       loading: true,
       network: true
     }
-    this._readData = this._readData.bind(this)
   }
 
   componentDidMount() {
@@ -28,6 +27,7 @@ export default class User extends Component {
     // AsyncStorage.removeItem('UserInfo')
     let userinfo = await AsyncStorage.getItem('UserInfo')
     let jsonValue = ''
+    global._userInfo = ''
     if (userinfo) {
       jsonValue = JSON.parse(userinfo)
       global._userInfo = jsonValue

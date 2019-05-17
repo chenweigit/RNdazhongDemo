@@ -88,18 +88,14 @@ export default class FetchRequest {
     }
 }
 
-function signature(data = {}, _type = 1) {
+function signature(data = {}) {
     let signData = {};
-    let _auth_key = '';
-    if (_type) {
-        _auth_key = '';
-    }
+    let _auth_key = global._userInfo.auth_key || '';
     const _key = 'xckj@#*&%&*%2018F#%jfkHUYDhe990';
     const nowDate = Date.parse(new Date()) / 1000;
     const hash = md5.hex_md5(_auth_key + '' + nowDate + '' + _key);
     signData['access_time'] = nowDate;
     signData['access_key'] = hash;
     signData['auth_key'] = _auth_key;
-
     return Object.assign(data, signData);
 }

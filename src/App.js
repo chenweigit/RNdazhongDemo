@@ -25,6 +25,7 @@ import AgentScreen from './view/agent'
 import LoginScreen from './view/login'
 import JclqScreen from './view/play/play_jclq/index'
 import PopulationScreen from './view/population'
+import SignOutScreen from './view/signout'
 
 const NotLoginBottom = createBottomTabNavigator({
   Home: {
@@ -107,6 +108,9 @@ const AppIndex = createStackNavigator({
   },
   Login: {
     screen: LoginScreen
+  },
+  SignOut: {
+    screen: SignOutScreen
   }
 },{
   initialRouteName: 'PopulationScreen',
@@ -214,12 +218,12 @@ class App extends Component {
   // =========================================
   render() {
     let AppContainer = null;
-    if(this.state.isLogin){
-      AppContainer = createAppContainer(loginBottom);
-    }else{
-     AppContainer = createAppContainer(NotLoginBottom);
-    }
-
+    // if(this.state.isLogin){
+    //   AppContainer = createAppContainer(loginBottom);
+    // }else{
+    //  AppContainer = createAppContainer(NotLoginBottom);
+    // }
+    AppContainer = createAppContainer(AppIndex);
     return (<AppContainer></AppContainer>);
     // return (
     //   <View style={styles.container}>

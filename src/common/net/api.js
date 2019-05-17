@@ -13,6 +13,7 @@ export default {
         Banner: `${API_DRESS}inidentity/get_banner`
     },
     login: {
-        Login: `${API_DRESS}inidentity/login_pw`
+        Login: `${API_DRESS}inidentity/login_pw`,
+        mybaseinfo: `${API_DRESS}user/mybaseinfo`
     }
 }
