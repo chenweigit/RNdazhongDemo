@@ -31,9 +31,10 @@ export default class User extends Component{
     let _userInfo = global._userInfo
     if (_userInfo) {
       switch (key) {
-        case value:
+        case '':
           break;
         default:
+          this.goLogin()
           console.log('默认')
           break;
       }

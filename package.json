@@ -2,13 +2,14 @@
   "name": "dazhongDemo",
   "version": "0.0.2",
   "private": true,
-  "homepage":"./",
+  "homepage": "./",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start  --reset-cache",
     "android": "react-native run-android",
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.4.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "react": "16.8.3",
     "react-native": "0.59.8",

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TextInput, Image, Button, TouchableHighlight, AsyncStorage} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, Button, TouchableHighlight} from 'react-native';
 import Header from '../component/header/header'
 import { px2dp } from '../utils/util'
 import { regExp } from '../common/reg_exp/reg_exp'
 import api from '../common/net/api'
 import server from '../common/net/server'
+import AsyncStorage from '@react-native-community/async-storage'
 
 /**
  * 登录
@@ -85,23 +86,30 @@ export default class Login extends Component{
   _signIn () {
     let phone = this.state.phone
     let pass = this.state.pass
-    let { navigation } = this.props
     let userInfo = {
       mobile: phone,
       password: pass
     }
     server.post(api.login.Login, userInfo).then(res =>{
       alert(res.res_msg)
-      AsyncStorage.setItem('UserInfo', JSON.stringify(res.data), (error) => {
-        if (!error) {
-          navigation.navigate('PopulationScreen')
-        }else {
-          alert('保存失败')
-        }
-      })
+      this._setData(JSON.stringify(res.data))
     }).catch(err => {
       console.log(err)
     })
+  }
+  
+  /**
+   * 存储登录信息
+   * @param {*} data 用户信息
+   */
+  async _setData (data) {
+    let state = await AsyncStorage.setItem('UserInfo', data)
+    if (!state) {
+      let { navigation } = this.props
+      navigation.navigate('PopulationScreen')
+    }else {
+      alert('保存失败')
+    }
   }
 
   // 返回
