@@ -30,19 +30,6 @@ export default class User extends Component {
   }
 
   // 获取登录状态
-<<<<<<< HEAD
-  async _readData() {
-    // AsyncStorage.removeItem('UserInfo')
-    let jsonValue = ''
-    let userInfo = await AsyncStorage.getItem('UserInfo');
-    if (userInfo) {
-      jsonValue = JSON.parse(result)
-      this.init(jsonValue)
-    } else {
-      this.init(jsonValue)
-    }
-    
-=======
   async _readData () {
     // AsyncStorage.removeItem('UserInfo')
     let userinfo = await AsyncStorage.getItem('UserInfo')
@@ -52,7 +39,6 @@ export default class User extends Component {
       global._userInfo = jsonValue
     }
     this.init(jsonValue)
->>>>>>> 30301dd6551dc042e2a01bc80857f69df105c6d0
   }
 
   init(userInfo) {
