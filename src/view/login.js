@@ -6,6 +6,7 @@ import { regExp } from '../common/reg_exp/reg_exp'
 import api from '../common/net/api'
 import server from '../common/net/server'
 import AsyncStorage from '@react-native-community/async-storage'
+import Toast, {DURATION} from 'react-native-easy-toast'
 
 /**
  * 登录
@@ -91,10 +92,9 @@ export default class Login extends Component{
       password: pass
     }
     server.post(api.login.Login, userInfo).then(res =>{
-      alert(res.res_msg)
       this._setData(JSON.stringify(res.data))
     }).catch(err => {
-      console.log(err)
+      this.refs.toast.show(err)
     })
   }
   
@@ -108,7 +108,7 @@ export default class Login extends Component{
       let { navigation } = this.props
       navigation.navigate('PopulationScreen')
     }else {
-      alert('保存失败')
+      this.refs.toast.show('保存用户信息失败！')
     }
   }
 
@@ -157,6 +157,7 @@ export default class Login extends Component{
           </View>
           {this._renderButton()}
         </View>
+        <Toast ref="toast"/>
       </View>
     );
   }
