@@ -3,6 +3,7 @@ package com.dazhongdemo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // 1.导入插件类 codepush
 import com.microsoft.codepush.react.CodePush;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -37,9 +38,11 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new AsyncStoragePackage(),
           new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey),
               getApplicationContext(), BuildConfig.DEBUG),
-          new RNGestureHandlerPackage(), new SplashScreenReactPackage());
+          new RNGestureHandlerPackage(), 
+          new SplashScreenReactPackage());
     }
 
     @Override

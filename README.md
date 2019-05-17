@@ -6,6 +6,8 @@ react native demo
 ## app 运行 
 > 安装模块
 -  npm i
+> 本地存储
+-  react-native link @react-native-community/async-storage
 > 首屏模块，解决启动白屏问题
 -  react-native link react-native-splash-screen
 > 手势模块，swiper 模块依赖
@@ -18,6 +20,7 @@ react native demo
 - react-native link react-native-code-push
 > 启动服务
 -  react-native run-android
+
 
 ## 打包
 > 默认已经创建了签名文件

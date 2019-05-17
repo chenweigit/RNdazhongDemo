@@ -16,6 +16,7 @@ export default {
         jclqList: `${API_DRESS}jczq-inidentity/jclq_match`,
     },
     login: {
-        Login: `${API_DRESS}inidentity/login_pw`
+        Login: `${API_DRESS}inidentity/login_pw`,
+        mybaseinfo: `${API_DRESS}user/mybaseinfo`
     }
 }
