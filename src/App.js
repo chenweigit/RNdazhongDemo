@@ -57,7 +57,7 @@ const NotLoginBottom = createBottomTabNavigator({
     }
   });
 
-const LoginBottom = createBottomTabNavigator({
+const loginBottom = createBottomTabNavigator({
   Home2: {
     screen: HomeScreen,
     navigationOptions:{
@@ -100,7 +100,7 @@ const AppIndex = createStackNavigator({
     screen: NotLoginBottom
   },
   LoginBottom: {
-    screen: LoginBottom
+    screen: loginBottom
   },
   Jclq: {
     screen: JclqScreen
@@ -123,7 +123,7 @@ const AppIndex = createStackNavigator({
     }
   })
 
-const AppContainer = createAppContainer(AppIndex);
+
 
 // codepush 设置更新频率
 let codePushOptions = {
@@ -136,9 +136,13 @@ let codePushOptions = {
 
 class App extends Component {
 
+  // 构造器,类实例化的时候自动会执行
+  
   constructor() {
     super(...arguments)
     this.state = {
+      isLogin:false,
+      userinfo:{}
       // hasCheckUpdate: false,
       // remotePackage: null,
       // hasGetLocalPackage: false,
@@ -151,7 +155,7 @@ class App extends Component {
   //如果有更新的提示
   syncImmediate() {
 
-    // CodePush.sync();
+    CodePush.sync();
     // CodePush.sync({
     //   //安装模式
     //   //ON_NEXT_RESUME 下次恢复到前台时
@@ -180,7 +184,10 @@ class App extends Component {
     // });
   }
   async init(){
-    // SplashScreen.hide();
+    // 判断是否登录
+    // let userinfo = await 
+    this.setState({isLogin:true});
+    SplashScreen.hide();
   }
 
   // 样式渲染完成后 隐藏启动屏幕
@@ -206,6 +213,13 @@ class App extends Component {
 
   // =========================================
   render() {
+    let AppContainer = null;
+    if(this.state.isLogin){
+      AppContainer = createAppContainer(loginBottom);
+    }else{
+     AppContainer = createAppContainer(NotLoginBottom);
+    }
+
     return (<AppContainer></AppContainer>);
     // return (
     //   <View style={styles.container}>

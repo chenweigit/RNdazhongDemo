@@ -8,9 +8,9 @@
     
     </style>
 
-    <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar"> 
+    <!-- <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar"> 
         <item name="android:windowTranslucentStatus">true</item> 
         <item name="android:windowTranslucentNavigation">true</item> 
-    </style>
+    </style> -->
 
 </resources>

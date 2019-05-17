@@ -47,10 +47,7 @@ export default class User extends Component {
       this.setState({
         loading: false
       })
-      navigation.dispatch(StackActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName: 'LoginBottom' })]
-      }))
+      navigation.dispatch(resetAction);
     } else {
       this.setState({
         loading: false

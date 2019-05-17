@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start  --reset-cache",
     "android": "react-native run-android",
-    "test": "jest"
+    "test": "jest",
+    "androidpack":"cd ./android && gradlew && gradlew installRelease"
   },
   "dependencies": {
     "babel-plugin-transform-remove-console": "^6.9.4",
