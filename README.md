@@ -48,10 +48,12 @@ android{
 // 打包命令
 // 在项目的根路径下
 cd android 
-// 打测试包
+// 打测试包 打包离线Bundle
 ./gradlew installRelease
 // 打正式包
-./gradlew installRelease
+./gradlew assembleRelease
+// 清理缓存
+./gradlew clean
 
 
 
