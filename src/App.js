@@ -12,6 +12,8 @@ import { Platform, StyleSheet, Text, View, TouchableOpacity, Alert } from 'react
 import CodePush from 'react-native-code-push'
 // 白屏
 import SplashScreen from 'react-native-splash-screen';
+// 极光推送
+import JPushModule from 'jpush-react-native';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import TabIcon from './component/base/TabIcon';
 import imgUrl from './utils/image_index';
@@ -145,7 +147,7 @@ class App extends Component {
   constructor() {
     super(...arguments)
     this.state = {
-      isLogin:false,
+      // isLogin:false,
       userinfo:{}
       // hasCheckUpdate: false,
       // remotePackage: null,
@@ -154,6 +156,9 @@ class App extends Component {
       // hasDownloadedPackage: false,
       // downloadPackage: null,
     }
+    this.isLogin = false;
+
+    this.init = this.init.bind(this);
   }
 
   //如果有更新的提示
@@ -187,10 +192,25 @@ class App extends Component {
     //   }
     // });
   }
-  async init(){
+  init(){
     // 判断是否登录
     // let userinfo = await 
-    this.setState({isLogin:true});
+    this.isLogin = true;
+    // this.setState({isLogin:true});
+    // 初始化推送
+    console.log(JPushModule);
+    if (Platform.OS === 'android') {
+      JPushModule.initPush()
+      
+      JPushModule.notifyJSDidLoad(resultCode => {
+        if (resultCode === 0) {
+        }
+      })
+    } else {
+      JPushModule.setupPush()
+    }
+    console.log(JPushModule);
+    // 启动页关闭
     SplashScreen.hide();
   }
 

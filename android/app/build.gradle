@@ -108,6 +108,11 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
+        manifestPlaceholders = [
+                JPUSH_APPKEY: "e6e7be37a7eb6ad61670042c",
+                APP_CHANNEL : "default"
+        ]
+
     }
     // 打包配置
     signingConfigs {
@@ -156,6 +161,8 @@ android {
 }
 
 dependencies {
+    implementation project(':jcore-react-native')
+    implementation project(':jpush-react-native')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-code-push')
     implementation project(':react-native-gesture-handler')

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 
 import org.devio.rn.splashscreen.SplashScreen;  // 导入启动包  启动页配置2
+import cn.jpush.android.api.JPushInterface;      // 极光推送
 
 public class MainActivity extends ReactActivity {
 
@@ -21,6 +22,24 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         SplashScreen.show(this, true);
+        JPushInterface.init(this);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

@@ -6,16 +6,24 @@ react native demo
 ## app 运行 
 > 安装模块
 -  npm i
+
+ > 极光推送  (android,ios 需要独立配置)
+-  react-native link   //  输入appkey(测试账号推送) e6e7be37a7eb6ad61670042c
+ 
 > 本地存储
 -  react-native link @react-native-community/async-storage
-> 首屏模块，解决启动白屏问题
+> 首屏模块，解决启动白屏问题  (android,ios 需要独立配置)
 -  react-native link react-native-splash-screen
 > 手势模块，swiper 模块依赖
 -  react-native link react-native-gesture-handler
-> 插件安装,热更新 RN 版本0.27+
-> │ Production │ HiohXNxvVkg9aBouevzWWlm_0RmJ7f49db43-8b02-4316-9ab5-394fa2f5d52a │
+> 插件安装,热更新 RN 版本0.27+  (android,ios 需要独立配置)
+> 
+````
+  │ Production │ HiohXNxvVkg9aBouevzWWlm_0RmJ7f49db43-8b02-4316-9ab5-394fa2f5d52a │
   ├────────────┼──────────────────────────────────────────────────────────────────┤
   │ Staging    │ NQj3RK14lrtMUGs7zgnstLWDZpyI7f49db43-8b02-4316-9ab5-394fa2f5d52a
+
+````  
   
 - react-native link react-native-code-push
 > 启动服务
@@ -57,6 +65,11 @@ cd android
 ./gradlew assembleRelease
 // 清理缓存
 ./gradlew clean
+
+
+## 常见问题
+ - 如果你在安装某一个模块的时候报  react-native-safe-area-view: Appears to be a git repo or submodule.
+ > 执行  rm -rf .git inside /node_modules/react-native-safe-area-view$
 
 
 
