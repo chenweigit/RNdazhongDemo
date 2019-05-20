@@ -26,6 +26,8 @@ import LoginScreen from './view/login'
 import JclqScreen from './view/play/play_jclq/index'
 import PopulationScreen from './view/population'
 import SignOutScreen from './view/signout'
+import AboutUsScreen from './view/user/about_us'
+import TxffcScreen from './view/play/play_txffc/index'
 
 const NotLoginBottom = createBottomTabNavigator({
   Home: {
@@ -111,6 +113,12 @@ const AppIndex = createStackNavigator({
   },
   SignOut: {
     screen: SignOutScreen
+  },
+  AboutUs: {
+    screen: AboutUsScreen
+  },
+  Txffc: {
+    screen: TxffcScreen
   }
 },{
   initialRouteName: 'PopulationScreen',
@@ -190,7 +198,7 @@ class App extends Component {
   async init(){
     // 判断是否登录
     // let userinfo = await 
-    this.setState({isLogin:true});
+    // this.setState({isLogin:true});
     SplashScreen.hide();
   }
 

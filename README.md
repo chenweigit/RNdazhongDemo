@@ -6,6 +6,8 @@ react native demo
 ## app 运行 
 > 安装模块
 -  npm i
+> 引入外部页面
+-  react-native link react-native-webview
 > 本地存储
 -  react-native link @react-native-community/async-storage
 > 首屏模块，解决启动白屏问题
