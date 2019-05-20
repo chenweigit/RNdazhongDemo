@@ -6,7 +6,7 @@ const host = {
     pro:""
 }
 
-const urlVersion = "4.4.2";
+const urlVersion = "4.4.3";
 
 const fetchHost = isPro?host.pro:host.dev;
 
