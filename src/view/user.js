@@ -96,6 +96,7 @@ export default class User extends Component{
         icon: require('../assets/login/service.png')
       }, {
         text: '个人中心',
+        key: 'about_us',
         icon: require('../assets/login/service.png')
       }]
     })
@@ -143,7 +144,10 @@ export default class User extends Component{
    * 点击列表进入页面
    */
   _goPage(par) {
-    alert(par)
+    let { navigation } = this.props
+    if (par.key == 'about_us') {
+      navigation.navigate('AboutUs')
+    }
   }
 
   /**
@@ -222,7 +226,7 @@ export default class User extends Component{
       <TouchableHighlight
         activeOpacity={1}
         underlayColor='white'
-        onPress={() => {this._clicks('goPage')}}>
+        onPress={() => {this._clicks('goPage', item)}}>
         <View style={{flexDirection: 'row', height: px2dp(120), alignItems: 'center',justifyContent: 'center'}}>
           <Image source={item.icon} style={{width: px2dp(50), height: px2dp(50), marginRight: px2dp(20)}}></Image>
           <Text style={{fontSize: px2dp(26), flex: 1}}>{item.text}</Text>
@@ -235,7 +239,7 @@ export default class User extends Component{
   render() {
     return (
       <View style={{backgroundColor: '#f4f4f4', flex: 1}}>
-        <Header text='我的彩票' goBack={() => {this.props.navigation.goBack()}}></Header>
+        <Header text='我的彩票'></Header>
         <ScrollView>
           {this._renderUser()}
           <View style={styles.buttomView}>

@@ -17,6 +17,7 @@ export default {
     },
     login: {
         Login: `${API_DRESS}inidentity/login_pw`,
-        mybaseinfo: `${API_DRESS}user/mybaseinfo`
+        mybaseinfo: `${API_DRESS}user/mybaseinfo`,
+        getBetOne: `${API_DRESS}inidentity/get_bet_one`
     }
 }

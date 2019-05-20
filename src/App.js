@@ -28,6 +28,15 @@ import LoginScreen from './view/login'
 import JclqScreen from './view/play/play_jclq/index'
 import PopulationScreen from './view/population'
 import SignOutScreen from './view/signout'
+import AboutUsScreen from './view/user/about_us'
+import TxffcScreen from './view/play/play_txffc/index'
+import shopCarJclqScreen from './view/shopcar/shopcar_jclq'
+
+console.disableYellowBox = true;
+
+console.warn('YellowBox is disabled.');
+
+
 
 const NotLoginBottom = createBottomTabNavigator({
   Home: {
@@ -108,11 +117,20 @@ const AppIndex = createStackNavigator({
   Jclq: {
     screen: JclqScreen
   },
+  shopcar: {
+    screen: shopCarJclqScreen
+  },
   Login: {
     screen: LoginScreen
   },
   SignOut: {
     screen: SignOutScreen
+  },
+  AboutUs: {
+    screen: AboutUsScreen
+  },
+  Txffc: {
+    screen: TxffcScreen
   }
 },{
   initialRouteName: 'PopulationScreen',
@@ -195,6 +213,7 @@ class App extends Component {
   init(){
     // 判断是否登录
     // let userinfo = await 
+<<<<<<< HEAD
     this.isLogin = true;
     // this.setState({isLogin:true});
     // 初始化推送
@@ -211,6 +230,9 @@ class App extends Component {
     }
     console.log(JPushModule);
     // 启动页关闭
+=======
+    // this.setState({isLogin:true});
+>>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
     SplashScreen.hide();
   }
 

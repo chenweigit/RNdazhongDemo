@@ -3,6 +3,8 @@ package com.dazhongdemo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
+
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // 1.导入插件类 codepush
 import com.microsoft.codepush.react.CodePush;
@@ -43,9 +45,15 @@ public class MainApplication extends Application implements ReactApplication {
     // 拥有它，你可以运行“代码推送部署ls <appName> -k”来检索你的密钥
     @Override
     protected List<ReactPackage> getPackages() {
+<<<<<<< HEAD
       return Arrays.<ReactPackage>asList(new MainReactPackage(), 
           new JPushPackage(SHUTDOWN_TOAST, SHUTDOWN_LOG),
           new AsyncStoragePackage(),
+=======
+      return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new RNCWebViewPackage(),
+            new AsyncStoragePackage(),
+>>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
           new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey),
               getApplicationContext(), BuildConfig.DEBUG),
           new RNGestureHandlerPackage(), new SplashScreenReactPackage());

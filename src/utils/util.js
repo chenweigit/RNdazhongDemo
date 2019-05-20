@@ -3,7 +3,7 @@
  * @Author: chenwei
  * @LastEditors: kelelle
  * @Date: 2019-05-06 13:35:25
- * @LastEditTime: 2019-05-17 17:42:27
+ * @LastEditTime: 2019-05-20 14:22:49
  */
 
 
@@ -13,7 +13,7 @@ import {Dimensions} from 'react-native';
 
 // device width/height
 const deviceWidthDp = Dimensions.get('window').width;
-// const deviceHeightDp = Dimensions.get('window').height;
+const deviceHeightDp = Dimensions.get('window').height;
 // design width/height
 const uiHeightPx = 750;
 
@@ -61,4 +61,11 @@ function lastTime(timeTemp,limitTime=5){ //最后下注时间 到秒
 }
 
 
-export {px2dp,formateObjToParamStr,getWeekDay,lastTime}
+export {
+  px2dp,
+  formateObjToParamStr,
+  getWeekDay,
+  lastTime,
+  deviceWidthDp,
+  deviceHeightDp
+}

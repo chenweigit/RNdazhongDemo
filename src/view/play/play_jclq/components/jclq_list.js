@@ -23,11 +23,34 @@ class JclqItem extends Component {
     this.setChose1 = this.setChose1.bind(this);
     this.isChose = this.isChose.bind(this)
   }
+  componentWillReceiveProps(nextProps){
+    console.log({nextProps},'JclqItem');
+    // let {odds_1_all,odds_2_all,odds_3_all,odds_4_all} = nextProps.data;
+    // this.setState({
+    //   odds_1_all,
+    //   odds_2_all,
+    //   odds_3_all,
+    //   odds_4_all
+    // })
+  }
+  // shouldComponentUpdate(nextProps,nextState){
+  //   console.log(nextProps);
+    
+  //   // let {odds_1_all,odds_2_all,odds_3_all,odds_4_all} = nextProps.data;
+  //   let oddsList = ['odds_1_all','odds_2_all','odds_3_all','odds_4_all'];
+  //   return !oddsList.some(oddsItem => { // 找一个不相等的
+  //     let nextOddsItem =  nextProps.data[oddsItem];
+  //     let currentOddsItem = this.state[oddsItem];
+  //     this.isEqual(nextOddsItem,currentOddsItem)
+  //   })
+  // }
+  // isEqual(nextOddsItem,currentOddsItem){
+  //   return JSON.stringify(nextOddsItem) !== JSON.stringify(currentOddsItem)
+  // } 
+
   setChose1(name,key){
     let {setChose} = this.props;
-    console.log(33);
     let items = this.state[name][key]||{};
-    console.log(items.chose);
     // console.log(data);
     items.chose = !items.chose;
 
@@ -37,22 +60,45 @@ class JclqItem extends Component {
     setChose()
   }
   isChose(name,key){
-    console.log({name,key});
-    console.log(this.state,this.state[name]);
-    
     let odds = this.state[name][key]||{};
     return odds.chose
   }
-  
+  renderChoseItem(){
+    const {odds_1_all,odds_2_all,odds_3_all,odds_4_all} = this.state;
+    let oddList = [odds_1_all,odds_2_all,odds_3_all,odds_4_all];
+    let choseNumber = oddList.reduce((count,odds_all) => {
+      count += Object.values(odds_all).reduce((int,value)=> {
+        return value.chose?int+1:int
+      },0)
+      return count
+    },0)
+    // console.log('choseNumber',choseNumber);
+    
+    if(choseNumber){
+      return (
+        <View style={[jclqItemStyle.flexBox, jclqItemStyle.rightBox]}>
+          <Text style={[jclqItemStyle.right_text,jclqItemStyle.right_textChose]}>已选</Text>
+          <Text style={[jclqItemStyle.right_text,jclqItemStyle.right_textChose]}>{choseNumber}项</Text>
+        </View>
+      )
+    }else{
+      return (
+        <Text style={jclqItemStyle.right_text}>展开</Text>
+      )
+    }
+
+  }
+
+
   render() {
+    console.log('rendera');
+    
     let {index,data} = this.props;
     let {odds_1_all,odds_2_all,odds_3_all,odds_4_all} = this.state;
-    console.log('render');
-    
     return (
       <View
         style={[jclqItemStyle.itemStyle,{marginTop:index===0?px2dp(22):0}]}
-        key={data.match_id}
+        key={data.match_id + index}
       >
         <View style={[jclqItemStyle.borderBottom]}>
           <Text style={[jclqItemStyle.text]}>{data.guest}&nbsp;&nbsp;&nbsp;VS&nbsp;&nbsp;&nbsp;{data.host}</Text>
@@ -78,28 +124,44 @@ class JclqItem extends Component {
               </TouchableOpacity>
               
               <Text style={[jclqItemStyle.textStyle, jclqItemStyle.oddsNumber, jclqItemStyle.borderLeft]}>{data.rq}</Text>
-              <TouchableOpacity>
-                <Text style={[jclqItemStyle.textStyle, jclqItemStyle.center_text, jclqItemStyle.borderLeft]}>让主胜 <Text style={jclqItemStyle.scoreColor}>{data['odds_2_all']['03'].value}</Text></Text>
+              <TouchableOpacity
+                onPress = {()=>{this.setChose1('odds_2_all','03')}}
+              >
+                <Text style={[jclqItemStyle.textStyle, jclqItemStyle.center_text, jclqItemStyle.borderLeft,this.isChose('odds_2_all','03')?jclqItemStyle.choseItem:null]}>让主胜 <Text style={jclqItemStyle.scoreColor}>{odds_2_all['03'].value}</Text></Text>
               </TouchableOpacity>
             </View>
             <View style={[jclqItemStyle.flexBox, jclqItemStyle.center_top]}>
               <View style={[jclqItemStyle.testText]}>
                 <Text style={[jclqItemStyle.center_letText, jclqItemStyle.big_text]}>大小分</Text>
               </View>
-              <TouchableOpacity>
-                <Text style={[jclqItemStyle.textStyle, jclqItemStyle.center_text, jclqItemStyle.borderLeft]}>大 <Text style={jclqItemStyle.scoreColor}>{data['odds_4_all']['03'].value}</Text></Text>
+              <TouchableOpacity
+                onPress = {()=>{this.setChose1('odds_4_all','03')}}
+              >
+                <Text style={[jclqItemStyle.textStyle, jclqItemStyle.center_text, jclqItemStyle.borderLeft,this.isChose('odds_4_all','03')?jclqItemStyle.choseItem:null]}>大 <Text style={jclqItemStyle.scoreColor}>{odds_4_all['03'].value}</Text></Text>
               </TouchableOpacity>
               
               <Text style={[jclqItemStyle.textStyle, jclqItemStyle.oddsNumber, jclqItemStyle.borderLeft]}>{data.sd}</Text>
-              <TouchableOpacity>
-                <Text style={[jclqItemStyle.textStyle, jclqItemStyle.center_text, jclqItemStyle.borderLeft]}>小 <Text style={jclqItemStyle.scoreColor}>{data['odds_4_all']['00'].value}</Text></Text>
+              <TouchableOpacity
+                onPress = {()=>{this.setChose1('odds_4_all','00')}}
+              >
+                <Text style={[jclqItemStyle.textStyle, jclqItemStyle.center_text, jclqItemStyle.borderLeft,this.isChose('odds_4_all','00')?jclqItemStyle.choseItem:null]}>小 <Text style={jclqItemStyle.scoreColor}>{odds_4_all['00'].value}</Text></Text>
               </TouchableOpacity>
               
             </View>
           </View>
           {/* 右边 */}
           <View style={[jclqItemStyle.flexBox, jclqItemStyle.rightBox, jclqItemStyle.borderLeft]}>
-            <Text style={jclqItemStyle.right_text}>展开</Text>
+            {
+              this.renderChoseItem()
+            }
+            {/* <Text style={jclqItemStyle.right_text}>展开</Text> */}
+
+            {/* <View style={[jclqItemStyle.flexBox, jclqItemStyle.rightBox]}>
+            <Text style={jclqItemStyle.right_text}>已选</Text>
+            <Text style={jclqItemStyle.right_text}>2项</Text>
+            </View> */}
+            
+
           </View>
         </View>
       </View>
@@ -111,12 +173,14 @@ class JclqItem extends Component {
 const jclqItemStyle = StyleSheet.create({
   itemStyle: {
     // padding: px2dp(20),
+    width: '100%',
     backgroundColor: '#fff',
     borderRadius: px2dp(10),
     borderWidth: 1,
     borderColor: '#eaeaea',
     borderStyle: 'solid',
     marginBottom: px2dp(22),
+    // justifyContent: 'flex-start',
     // marginTop: px2dp(22)
 
   },
@@ -184,7 +248,7 @@ const jclqItemStyle = StyleSheet.create({
     textAlign: 'center',
   },
   centerBox: {
-    width: px2dp(480),
+    width: px2dp(480)+4,
 
   },
   center_top: {
@@ -234,11 +298,15 @@ const jclqItemStyle = StyleSheet.create({
   rightBox: {
     flex: 1,
     height: px2dp(160),
+    flexDirection: 'column',
 
   },
   right_text: {
     fontSize: px2dp(20),
     color: '#333'
+  },
+  right_textChose: {
+    color: '#ff4536'
   },
   choseItem: {
     backgroundColor: '#ff4536',
@@ -255,17 +323,23 @@ export default class JclqList extends Component {
     list: PropTypes.array,
     date: PropTypes.string,
     setChose: PropTypes.func,
+    listIndex: PropTypes.number,
   }
   
 
   constructor(props) {
     super(props)
-
     this.state = {
-      showList: false
+      showList: props.listIndex == '0'?true:false
     }
     this.setShowList = this.setShowList.bind(this)
   }
+  componentWillReceiveProps(nextProps){
+    // console.log(nextProps,333);
+    
+    
+  }
+
   showListItem(item,index){
     let {showList} = this.state;
     let {date,setChose} = this.props;
@@ -300,7 +374,7 @@ export default class JclqList extends Component {
         </TouchableOpacity>
         <FlatList
           data={list}
-          extraData={this.state}
+          extraData={{...this.state,...this.props}}
           // numColumns = {2}
           // contentContainerStyle = {jclqStyle.list}
           style={jclqStyle.list}

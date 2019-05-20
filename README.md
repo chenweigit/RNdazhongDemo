@@ -8,8 +8,12 @@ react native demo
 -  npm i
 
  > 极光推送  (android,ios 需要独立配置)
--  react-native link   //  输入appkey(测试账号推送) e6e7be37a7eb6ad61670042c
+ > npm install jpush-react-native jcore-react-native --save
+-  react-native link  jpush-react-native  //  输入appkey(测试账号推送) e6e7be37a7eb6ad61670042c
+-  react-native link  jcore-react-native
  
+> 引入外部页面
+-  react-native link react-native-webview
 > 本地存储
 -  react-native link @react-native-community/async-storage
 > 首屏模块，解决启动白屏问题  (android,ios 需要独立配置)

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, WebView} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 import Header from '../component/header/header'
 import { px2dp } from '../utils/util'
 import AsyncStorage from '@react-native-community/async-storage'
 /**
  * 代理
  */
-export default class Agent extends Component{
+export default class SignOut extends Component{
   constructor (props) {
     super(props)
     this.state = {
@@ -38,10 +38,6 @@ export default class Agent extends Component{
             style={[styles.loginBtn, styles.btnColor1]}>
             <Text style={styles.textColor}>退出</Text>
           </TouchableHighlight>
-          {/* <View style={{height: px2dp(300)}} >
-            <WebView source={{uri: 'https://www.baidu.com'}}>
-            </WebView>
-          </View> */}
         </View>
       </View>
     );

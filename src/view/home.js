@@ -76,7 +76,13 @@ class Home extends Component {
     // this.props.navigation
     let {navigation} = this.props;
     console.log(row)
-    navigation.navigate('Jclq', {
+    let router = ''
+    if (row.key == 'txffc') {
+      router = 'Txffc'
+    } else {
+      router = 'Jclq'
+    }
+    navigation.navigate(router, {
       itemId: 85,
       otherParam: 'anything you want here',
     });
