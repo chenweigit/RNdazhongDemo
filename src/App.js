@@ -28,6 +28,13 @@ import PopulationScreen from './view/population'
 import SignOutScreen from './view/signout'
 import AboutUsScreen from './view/user/about_us'
 import TxffcScreen from './view/play/play_txffc/index'
+import shopCarJclqScreen from './view/shopcar/shopcar_jclq'
+
+console.disableYellowBox = true;
+
+console.warn('YellowBox is disabled.');
+
+
 
 const NotLoginBottom = createBottomTabNavigator({
   Home: {
@@ -107,6 +114,9 @@ const AppIndex = createStackNavigator({
   },
   Jclq: {
     screen: JclqScreen
+  },
+  shopcar: {
+    screen: shopCarJclqScreen
   },
   Login: {
     screen: LoginScreen
