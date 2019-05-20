@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Modal, Button, Image} from 'react-native';
+import { StyleSheet, Text, View, Modal, Button, Image, TouchableHighlight, FlatList} from 'react-native';
 import Header from '../../../component/header/header'
 import { px2dp } from '../../../utils/util'
 import api from '../../../common/net/api'
@@ -15,7 +15,24 @@ export default class AboutUs extends Component{
       timer: '',
       isend: '000000',
       isModal: false,
-      jiantou: require('../../../assets/login/icon_right.png')
+      jiantou: require('../../../assets/login/icon_right.png'),
+      btnList: [
+        {
+          text: '龙',
+          num: 1,
+          isChoice: false
+        },
+        {
+          text: '虎',
+          num: 2,
+          isChoice: false
+        },
+        {
+          text: '和',
+          num: 3,
+          isChoice: false
+        }
+      ]
     }
   }
 
@@ -71,6 +88,57 @@ export default class AboutUs extends Component{
     })
   }
 
+  _renderBtn (item, index) {
+    let btnList = this.state.btnList
+    if (item.isChoice) {
+      return (
+        <View style={{flex: 1, alignItems: 'center'}}>
+        <TouchableHighlight
+          onPress={() => {
+            btnList[index].isChoice = false
+            this.setState({
+              btnList: btnList
+            })
+          }}
+          underlayColor='#ff473a'
+          style={{
+            width: px2dp(100),
+            height: px2dp(100),
+            borderRadius: px2dp(50),
+            borderColor: '#e9e9e9',
+            borderWidth: 1,
+            backgroundColor: 'red',
+            justifyContent: 'center'
+          }}>
+          <Text style={{textAlign: 'center', color: 'white'}}>{item.text}</Text>
+        </TouchableHighlight>
+      </View>
+      )
+    }
+    return (
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <TouchableHighlight
+          onPress={() => {
+            btnList[index].isChoice = true
+            this.setState({
+              btnList: btnList
+            })
+          }}
+          underlayColor='white'
+          style={{
+            width: px2dp(100),
+            height: px2dp(100),
+            borderRadius: px2dp(50),
+            borderColor: '#e9e9e9',
+            borderWidth: 1,
+            justifyContent: 'center'
+          }}>
+          <Text style={{textAlign: 'center', color: '#333'}}>{item.text}</Text>
+        </TouchableHighlight>
+      </View>
+    )
+  }
+
   /**
    * 温馨提示
    */
@@ -115,11 +183,15 @@ export default class AboutUs extends Component{
         </View>
         <View style={{padding: px2dp(20),backgroundColor: 'white', marginTop: px2dp(20)}}>
           <Text>
-            猜中开奖号码万位和个位的大小关系（万位大于个位为龙,万位小于个位为虎,万位等于个位为和）,龙中奖<Text style={{color: 'red'}}>4.3元</Text>,虎中奖<Text style={{color: 'red'}}>4.3元</Text>,和中奖<Text style={{color: 'red'}}>19.4元</Text>
+            猜中开奖号码万位和个位的大小关系（万位大于个位为龙,万位小于个位为虎,万位等于个位为和）,龙中奖<Text style={{color: 'red'}}>4.0元</Text>,虎中奖<Text style={{color: 'red'}}>4.3元</Text>,和中奖<Text style={{color: 'red'}}>19.4元</Text>
           </Text>
-          <View>
-            
-          </View>
+          <FlatList
+            style={{paddingTop: px2dp(40), paddingBottom: px2dp(20)}}
+            data={this.state.btnList}
+            numColumns = {3}
+            extraData={this.state}
+            renderItem={({item, index}) => this._renderBtn(item, index)}
+            ></FlatList>
         </View>
         <Modal
           animationType='slide'
