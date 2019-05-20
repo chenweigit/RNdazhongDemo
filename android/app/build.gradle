@@ -161,12 +161,9 @@ android {
 }
 
 dependencies {
-<<<<<<< HEAD
     implementation project(':jcore-react-native')
     implementation project(':jpush-react-native')
-=======
     implementation project(':react-native-webview')
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-code-push')
     implementation project(':react-native-gesture-handler')

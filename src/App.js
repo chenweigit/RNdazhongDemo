@@ -213,7 +213,6 @@ class App extends Component {
   init(){
     // 判断是否登录
     // let userinfo = await 
-<<<<<<< HEAD
     this.isLogin = true;
     // this.setState({isLogin:true});
     // 初始化推送
@@ -230,9 +229,6 @@ class App extends Component {
     }
     console.log(JPushModule);
     // 启动页关闭
-=======
-    // this.setState({isLogin:true});
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
     SplashScreen.hide();
   }
 

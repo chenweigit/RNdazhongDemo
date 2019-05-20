@@ -45,7 +45,6 @@
 		7C0C228AB9CA49AAA29F7BFD /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB6494750C74689BAE8E144 /* libCodePush.a */; };
 		AD7A4017E3FB4F2F9D8298C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E74B8B043DA84298BB3F00DF /* libz.tbd */; };
 		B3D4C7124D6047398774627F /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D18A32781094B5D8FD74498 /* libRNCAsyncStorage.a */; };
-<<<<<<< HEAD
 		B78346EFC8AB4DD9B3683C06 /* libRCTJCoreModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F8D04C887243A1A7874A68 /* libRCTJCoreModule.a */; };
 		4E85238D33BE48FE921858D1 /* libRCTJPushModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16056903488048B7B13A8AE8 /* libRCTJPushModule.a */; };
 		0B53E471E64246FEA5922D42 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FB336C28D645A69D2D44E6 /* UserNotifications.framework */; };
@@ -58,9 +57,7 @@
 		5B0D6C5756764516ABC37C54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A15F0C8A474DC7A87BF7BE /* UIKit.framework */; };
 		48621952ED5B4DA3B6F85572 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D05166EAA5C9425DB610887E /* libresolv.tbd */; };
 		B777C416A4C94FD298E170DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDD114016804FBB91A99205 /* CoreGraphics.framework */; };
-=======
 		F10E7525DBBD4FF5AFD7EC52 /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 925C76AE73384BBE8A10EFC7 /* libRNCWebView.a */; };
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,7 +375,6 @@
 		E74B8B043DA84298BB3F00DF /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		4E4A1899DA804F43B88B645C /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; name = "RNCAsyncStorage.xcodeproj"; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		8D18A32781094B5D8FD74498 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; name = "libRNCAsyncStorage.a"; path = "libRNCAsyncStorage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-<<<<<<< HEAD
 		3A8F91D21A934A87AC2EFA86 /* RCTJCoreModule.xcodeproj */ = {isa = PBXFileReference; name = "RCTJCoreModule.xcodeproj"; path = "../node_modules/jcore-react-native/ios/RCTJCoreModule.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		69F8D04C887243A1A7874A68 /* libRCTJCoreModule.a */ = {isa = PBXFileReference; name = "libRCTJCoreModule.a"; path = "libRCTJCoreModule.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		E924DD5C8EEE4CEAB6949594 /* RCTJPushModule.xcodeproj */ = {isa = PBXFileReference; name = "RCTJPushModule.xcodeproj"; path = "../node_modules/jpush-react-native/ios/RCTJPushModule.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
@@ -393,10 +389,8 @@
 		C3A15F0C8A474DC7A87BF7BE /* UIKit.framework */ = {isa = PBXFileReference; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		D05166EAA5C9425DB610887E /* libresolv.tbd */ = {isa = PBXFileReference; name = "libresolv.tbd"; path = "usr/lib/libresolv.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		4FDD114016804FBB91A99205 /* CoreGraphics.framework */ = {isa = PBXFileReference; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-=======
 		7984F48D4D694674B0F47702 /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; name = "RNCWebView.xcodeproj"; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		925C76AE73384BBE8A10EFC7 /* libRNCWebView.a */ = {isa = PBXFileReference; name = "libRNCWebView.a"; path = "libRNCWebView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,7 +424,6 @@
 				7C0C228AB9CA49AAA29F7BFD /* libCodePush.a in Frameworks */,
 				AD7A4017E3FB4F2F9D8298C1 /* libz.tbd in Frameworks */,
 				B3D4C7124D6047398774627F /* libRNCAsyncStorage.a in Frameworks */,
-<<<<<<< HEAD
 				B78346EFC8AB4DD9B3683C06 /* libRCTJCoreModule.a in Frameworks */,
 				4E85238D33BE48FE921858D1 /* libRCTJPushModule.a in Frameworks */,
 				0B53E471E64246FEA5922D42 /* UserNotifications.framework in Frameworks */,
@@ -443,9 +436,7 @@
 				5B0D6C5756764516ABC37C54 /* UIKit.framework in Frameworks */,
 				48621952ED5B4DA3B6F85572 /* libresolv.tbd in Frameworks */,
 				B777C416A4C94FD298E170DB /* CoreGraphics.framework in Frameworks */,
-=======
 				F10E7525DBBD4FF5AFD7EC52 /* libRNCWebView.a in Frameworks */,
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,12 +642,9 @@
 				F41B180D0FA64BFA9B7D6969 /* RNGestureHandler.xcodeproj */,
 				B5E9B6E2A8E9406FB6465761 /* CodePush.xcodeproj */,
 				4E4A1899DA804F43B88B645C /* RNCAsyncStorage.xcodeproj */,
-<<<<<<< HEAD
 				3A8F91D21A934A87AC2EFA86 /* RCTJCoreModule.xcodeproj */,
 				E924DD5C8EEE4CEAB6949594 /* RCTJPushModule.xcodeproj */,
-=======
 				7984F48D4D694674B0F47702 /* RNCWebView.xcodeproj */,
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1285,15 +1273,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-=======
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1301,12 +1286,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Debug;
@@ -1329,15 +1311,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-=======
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1345,12 +1324,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Release;
@@ -1377,12 +1353,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Debug;
@@ -1408,12 +1381,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Release;
@@ -1444,15 +1414,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-=======
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1460,12 +1427,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Debug;
@@ -1496,15 +1460,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-=======
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1512,12 +1473,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Release;
@@ -1547,15 +1505,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-=======
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1563,12 +1518,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Debug;
@@ -1598,15 +1550,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-=======
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1614,12 +1563,9 @@
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 					"$(SRCROOT)\..\node_modules\@react-native-community\async-storage\ios",
-<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\jcore-react-native\ios\RCTJCoreModule",
 					"$(SRCROOT)\..\node_modules\jpush-react-native\ios\RCTJPushModule",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
->>>>>>> f5681ff656a5b69c47be8a49c463ade82180d4e3
 				);
 			};
 			name = Release;
