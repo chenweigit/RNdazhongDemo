@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Modal, Button, Image, TouchableHighlight, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Modal, Button, Image, TouchableHighlight, FlatList, ScrollView} from 'react-native';
 import Header from '../../../component/header/header'
 import { px2dp } from '../../../utils/util'
 import api from '../../../common/net/api'
@@ -32,7 +32,8 @@ export default class AboutUs extends Component{
           num: 3,
           isChoice: false
         }
-      ]
+      ],
+      checkList: []
     }
   }
 
@@ -90,14 +91,21 @@ export default class AboutUs extends Component{
 
   _renderBtn (item, index) {
     let btnList = this.state.btnList
+    let checkList = []
     if (item.isChoice) {
       return (
         <View style={{flex: 1, alignItems: 'center'}}>
         <TouchableHighlight
           onPress={() => {
             btnList[index].isChoice = false
+            btnList.forEach(e => {
+              if (e.isChoice) {
+                checkList.push(e)
+              }
+            })
             this.setState({
-              btnList: btnList
+              btnList: btnList,
+              checkList: checkList
             })
           }}
           underlayColor='#ff473a'
@@ -120,8 +128,14 @@ export default class AboutUs extends Component{
         <TouchableHighlight
           onPress={() => {
             btnList[index].isChoice = true
+            btnList.forEach(e => {
+              if (e.isChoice) {
+                checkList.push(e)
+              }
+            })
             this.setState({
-              btnList: btnList
+              btnList: btnList,
+              checkList: checkList
             })
           }}
           underlayColor='white'
@@ -139,9 +153,55 @@ export default class AboutUs extends Component{
     )
   }
 
-  /**
-   * 温馨提示
-   */
+  _renderXuan (state) {
+    let checkList = this.state.checkList
+    let btnList = this.state.btnList
+    let qk = require('../../../assets/image/clear_icon.png')
+    let jx = require('../../../assets/image/random.png')
+    if (checkList.length > 0) {
+      return (
+        <TouchableHighlight underlayColor='white' style={{justifyContent: 'center', backgroundColor: 'white', flex: 1}} onPress={() => {
+          btnList.forEach(e => {
+            e.isChoice = false
+          })
+          this.setState({
+            btnList: btnList,
+            checkList: []
+          })
+        }}>
+          <Image source={qk} style={{width: px2dp(160), height: px2dp(50)}}></Image> 
+        </TouchableHighlight>
+      )
+    } else {
+      return (
+        <TouchableHighlight underlayColor='white' style={{justifyContent: 'center', backgroundColor: 'white', flex: 1}} onPress={() => {
+          console.log(Math.floor(Math.random()*3+1))
+        }}>
+          <Image source={jx} style={{width: px2dp(160), height: px2dp(50)}}></Image>  
+        </TouchableHighlight>
+      )
+    }
+  }
+
+  _renderText () {
+    let checkList = this.state.checkList
+    if (checkList.length > 0) {
+      let str = ''
+      checkList.forEach(e => {
+        str+=e.text
+      });
+      return (
+        <View>
+          <Text>已选{this.state.checkList.length}注</Text>
+          <Text>{str}</Text>
+        </View>
+      )
+    } else {
+      return (
+        <Text>已选{this.state.checkList.length}注</Text>
+      )
+    }
+  }
 
   render() {
     let time = this.state.isend
@@ -149,49 +209,63 @@ export default class AboutUs extends Component{
     return (
       <View style={{backgroundColor: '#f4f4f4', flex: 1}}>
         <Header text="腾讯分分彩" goBack={() => {this.props.navigation.goBack()}} showModel={() => {alert(1)}}></Header>
-        <View style={styles.topView}>
-          <View style={{flex: 1, alignItems: 'center'}}>
-            <View style={{}}>
-              <Text style={{fontSize: px2dp(20), textAlign: 'center'}}>———— 距离0882投注截止 ————</Text>
-            </View>
-            <View style={{flexDirection: 'row', marginTop: px2dp(20)}}>
-              <Text style={styles.redView}>{time[0]}</Text>
-              <Text style={styles.redView}>{time[1]}</Text>
-              <Text> 分</Text>
-              <Text style={styles.redView}>{time[2]}</Text>
-              <Text style={styles.redView}>{time[3]}</Text>
-              <Text> 秒</Text>
-            </View>
-          </View>
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <View style={{flex: 1, paddingLeft: px2dp(100)}}>
+        <ScrollView>
+          <View style={styles.topView}>
+            <View style={{flex: 1, alignItems: 'center'}}>
               <View style={{}}>
-                <Text style={{fontSize: px2dp(20)}}>0882开奖结果</Text>
+                <Text style={{fontSize: px2dp(20), textAlign: 'center'}}>———— 距离0882投注截止 ————</Text>
               </View>
-              <View style={{flexDirection: 'row', marginTop: px2dp(15)}}>
-                <Text>2</Text>
-                <Text>2</Text>
-                <Text>2</Text>
-                <Text>2</Text>
-                <Text>2</Text>
+              <View style={{flexDirection: 'row', marginTop: px2dp(20)}}>
+                <Text style={styles.redView}>{time[0]}</Text>
+                <Text style={styles.redView}>{time[1]}</Text>
+                <Text> 分</Text>
+                <Text style={styles.redView}>{time[2]}</Text>
+                <Text style={styles.redView}>{time[3]}</Text>
+                <Text> 秒</Text>
               </View>
             </View>
-            <View style={{justifyContent: 'center', paddingRight: px2dp(20)}}>
-              <Image source={arrowImg} style={{width: px2dp(20), height: px2dp(30)}}></Image>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <View style={{flex: 1, paddingLeft: px2dp(100)}}>
+                <View style={{}}>
+                  <Text style={{fontSize: px2dp(20)}}>0882开奖结果</Text>
+                </View>
+                <View style={{flexDirection: 'row', marginTop: px2dp(15)}}>
+                  <Text>2</Text>
+                  <Text>2</Text>
+                  <Text>2</Text>
+                  <Text>2</Text>
+                  <Text>2</Text>
+                </View>
+              </View>
+              <View style={{justifyContent: 'center', paddingRight: px2dp(20)}}>
+                <Image source={arrowImg} style={{width: px2dp(20), height: px2dp(30)}}></Image>
+              </View>
             </View>
           </View>
-        </View>
-        <View style={{padding: px2dp(20),backgroundColor: 'white', marginTop: px2dp(20)}}>
-          <Text>
-            猜中开奖号码万位和个位的大小关系（万位大于个位为龙,万位小于个位为虎,万位等于个位为和）,龙中奖<Text style={{color: 'red'}}>4.0元</Text>,虎中奖<Text style={{color: 'red'}}>4.3元</Text>,和中奖<Text style={{color: 'red'}}>19.4元</Text>
-          </Text>
-          <FlatList
-            style={{paddingTop: px2dp(40), paddingBottom: px2dp(20)}}
-            data={this.state.btnList}
-            numColumns = {3}
-            extraData={this.state}
-            renderItem={({item, index}) => this._renderBtn(item, index)}
-            ></FlatList>
+          <View style={{padding: px2dp(20),backgroundColor: 'white', marginTop: px2dp(20)}}>
+            <Text>
+              猜中开奖号码万位和个位的大小关系（万位大于个位为龙,万位小于个位为虎,万位等于个位为和）,龙中奖<Text style={{color: 'red'}}>4.0元</Text>,虎中奖<Text style={{color: 'red'}}>4.3元</Text>,和中奖<Text style={{color: 'red'}}>19.4元</Text>
+            </Text>
+            <FlatList
+              style={{paddingTop: px2dp(40), paddingBottom: px2dp(20)}}
+              data={this.state.btnList}
+              numColumns = {3}
+              extraData={this.state}
+              renderItem={({item, index}) => this._renderBtn(item, index)}
+              ></FlatList>
+          </View>
+        </ScrollView>
+        <View style={{height: px2dp(100), flexDirection: 'row'}}>
+          <View>
+            {this._renderXuan(this.state)}
+          </View>
+          <View style={{flex: 1, justifyContent: 'center', backgroundColor: 'white', paddingLeft: px2dp(20), paddingRight: px2dp(20)}}>
+            {this._renderText()}
+          </View>
+          <TouchableHighlight
+            style={{width: px2dp(200),backgroundColor: 'red', justifyContent: 'center', alignItems: 'center'}}>
+            <Text>确定</Text>
+          </TouchableHighlight>
         </View>
         <Modal
           animationType='slide'
